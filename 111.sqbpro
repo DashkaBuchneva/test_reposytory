@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/buchneva/111.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1262"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,15:mainsqlite_sequence"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Resturant2" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="51"/><column index="3" value="112"/><column index="4" value="48"/><column index="5" value="54"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Waiters" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="54"/><column index="3" value="98"/><column index="4" value="93"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="sqlite_sequence" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="69"/><column index="2" value="40"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="tab2" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="114"/><column index="3" value="98"/><column index="4" value="40"/><column index="5" value="63"/><column index="6" value="147"/><column index="7" value="54"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Моя" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="44"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">--Задание 2
+
+CREATE TABLE IF NOT EXISTS  Resturant2(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name TEXT,
+	adress TEXT,
+	phone TEXT,
+	rest_id INTEGER
+	
+	
+);
+
+CREATE TABLE  IF NOT EXISTS tab2 (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+   resturant_name TEXT,
+   table_number INTEGER,
+   tutl TEXT,
+   capacity TEXT,
+   booking_confirmation  TEXT,
+   rest_id INTEGER,
+   id_bron INTEGER,
+   client TEXT
+   
+ 
+ );
+ 
+ 
+ 
+ CREATE TABLE IF NOT EXISTS Waiters (
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   rest_id INTEGER,
+   table_number INTEGER,
+   waiter_name TEXT
+   
+ );
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ INSERT INTO Resturant2(name, adress, phone, rest_id) VALUES ('Сулико', 'Ленина', '999', 1);
+ INSERT INTO Resturant2(name, adress, phone, rest_id) VALUES ('Пушкин', 'Петровский сквер', '888', 2);
+ INSERT INTO Resturant2(name, adress, phone, rest_id) VALUES ('Ягодка', 'Проспект', '777', 3);
+ 
+INSERT INTO tab2(resturant_name, table_number, tutl, capacity, booking_confirmation, rest_id, id_bron, client) VALUES ('Сулико', 1, '00:00', '5', 'нет', 1, 1, 'Olya');
+INSERT INTO tab2(resturant_name, table_number, tutl, capacity, booking_confirmation, rest_id, id_bron, client) VALUES ('Сулико', 2, '', '3', 'нет', 1, 0, '');
+INSERT INTO tab2(resturant_name, table_number, tutl, capacity, booking_confirmation, rest_id, id_bron, client) VALUES ('Сулико', 3, '12:00', '4', 'да', 1, 2, 'Naty');
+INSERT INTO tab2(resturant_name, table_number, tutl, capacity, booking_confirmation, rest_id, id_bron, client) VALUES ('Пушкин', 1, '', '5', 'нет', 2, 0, '');
+INSERT INTO tab2(resturant_name, table_number, tutl, capacity, booking_confirmation, rest_id, id_bron, client) VALUES ('Пушкин', 2, '15:00', '2', 'да', 2, 1, 'Daha');
+INSERT INTO tab2(resturant_name, table_number, tutl, capacity, booking_confirmation, rest_id, id_bron, client) VALUES ('Ягодка', 1, '00:00', '8', 'нет', 3, 1, 'Luda');
+
+
+INSERT INTO Waiters(rest_id, table_number, waiter_name) VALUES (1, 1, 'Ivanov');
+INSERT INTO Waiters(rest_id, table_number, waiter_name) VALUES (1, 2, 'Petrov');
+INSERT INTO Waiters(rest_id, table_number, waiter_name) VALUES (1, 3, 'Sidorov');
+INSERT INTO Waiters(rest_id, table_number, waiter_name) VALUES (2, 1, 'Juravlyov');
+  
+
+
+--DELETE from tables;
+
+--DELETE FROM Resturant;
+--1
+
+--SELECT name, adress, phone, rest_id 
+--from Resturant2 
+--WHERE rest_id = 1;
+
+
+--2
+
+
+--SELECT table_number, capacity,Resturant2.rest_id
+--FROM Resturant2 JOIN tab2 ON Resturant2.rest_id =tab2.rest_id
+--WHERE Resturant2.rest_id = 2;
+
+--3
+
+--SELECT id_bron, client, table_number, tutl
+--FROM Resturant2 JOIN tab2 ON Resturant2.rest_id =tab2.rest_id
+--WHERE Resturant2.rest_id = 3;
+
+
+--4
+
+--SELECT  waiter_name,tab2.table_number,Resturant2.rest_id
+--FROM Resturant2
+  --JOIN tab2 ON Resturant2.rest_id =tab2.rest_id 
+ --JOIN Waiters ON tab2.table_number = Waiters.table_number  and Resturant2.rest_id =Waiters.rest_id 
+
+--WHERE Resturant2.rest_id = 1;
+
+--7
+
+--SELECT  waiter_name,tab2.table_number,Resturant2.rest_id, tutl, booking_confirmation, capacity, client
+--FROM Resturant2
+  --JOIN tab2 ON Resturant2.rest_id =tab2.rest_id 
+  --JOIN Waiters ON tab2.table_number = Waiters.table_number  and Resturant2.rest_id =Waiters.rest_id 
+ --WHERE Resturant2.rest_id = 1;
+ 
+ --8
+ 
+--SELECT  COUNT(table_number)
+--FROM Resturant2 JOIN tab2 ON Resturant2.rest_id =tab2.rest_id
+
+--9
+
+--SELECT resturant_name, table_number, capacity 
+--FROM Resturant2 JOIN tab2 ON Resturant2.rest_id =tab2.rest_id
+--WHERE tab2.capacity &gt;= 6
+
+--10
+SELECT resturant_name, client
+FROM Resturant2 JOIN tab2 ON Resturant2.rest_id =tab2.rest_id
+WHERE tab2.client = 'Daha'
+
+
+
+
+
+
+
+
+
+
+
+
+--select * FROM Resturant
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
